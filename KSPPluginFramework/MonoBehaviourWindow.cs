@@ -10,7 +10,7 @@ using UnityEngine;
 /// An Extended version of the UnityEngine.MonoBehaviour Class
 /// Basically a template for a Window, has the MonoBehaviourExtended properties and extra bits to make drawing a window easier
 /// </summary>
-internal abstract class MonoBehaviourWindow : MonoBehaviourExtended
+public abstract class MonoBehaviourWindow : MonoBehaviourExtended
 {
     #region "Constructors"
     internal MonoBehaviourWindow()
