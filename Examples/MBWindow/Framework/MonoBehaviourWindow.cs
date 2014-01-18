@@ -129,9 +129,9 @@ public abstract class MonoBehaviourWindow : MonoBehaviourExtended
         
         //Are we using a custom style of the skin style for the window
         if (WindowStyle == null) {
-            WindowRect = GUILayout.Window(WindowID, WindowRect, DrawWindowInternal, WindowCaption, WindowOptions);//, WindowContent, WindowStyle, WindowOptions);
+            WindowRect = GUILayout.Window(WindowID, WindowRect, DrawWindowInternal, WindowCaption, WindowOptions);
         } else {
-            WindowRect = GUILayout.Window(WindowID, WindowRect, DrawWindowInternal, WindowCaption, WindowStyle, WindowOptions);//, WindowContent, WindowStyle, WindowOptions);
+            WindowRect = GUILayout.Window(WindowID, WindowRect, DrawWindowInternal, WindowCaption, WindowStyle, WindowOptions);
         }
         
         //Draw the tooltip of its there to be drawn

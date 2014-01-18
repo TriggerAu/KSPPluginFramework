@@ -5,15 +5,20 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBExtended", "MBExtended\MBExtended.csproj", "{C656626C-3770-422A-8847-D609CCDFA6ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBWindow", "MBWindow\MBWindow.csproj", "{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs34
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = MBExtended\\MBExtended.csproj
 		SccProjectName1 = MBExtended
 		SccLocalPath1 = MBExtended
+		SccProjectUniqueName2 = MBWindow\\MBWindow.csproj
+		SccProjectName2 = MBWindow
+		SccLocalPath2 = MBWindow
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{C656626C-3770-422A-8847-D609CCDFA6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C656626C-3770-422A-8847-D609CCDFA6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C656626C-3770-422A-8847-D609CCDFA6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
