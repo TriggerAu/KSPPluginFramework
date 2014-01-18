@@ -46,6 +46,10 @@ public abstract class MonoBehaviourExtended : MonoBehaviour
     //    monoReturn = AttachTo.AddComponent<MonoBehaviourExtended>();
     //    return monoReturn;
     //}
+    static MonoBehaviourExtended()
+    {
+        UnityEngine.Random.seed = (int)(DateTime.Now - DateTime.Now.Date).TotalSeconds;
+    }
     #endregion
 
     #region RepeatingFunction Code
