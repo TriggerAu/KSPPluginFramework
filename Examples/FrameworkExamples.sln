@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBExtended", "MBExtended\MB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBWindow", "MBWindow\MBWindow.csproj", "{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkinsAhoy", "SkinsAhoy\SkinsAhoy.csproj", "{7F951034-ADE7-4175-9B3C-11DEACBA542D}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs34
 		SccLocalPath0 = .
@@ -19,6 +21,9 @@ Global
 		SccProjectUniqueName2 = MBWindow\\MBWindow.csproj
 		SccProjectName2 = MBWindow
 		SccLocalPath2 = MBWindow
+		SccProjectUniqueName3 = SkinsAhoy\\SkinsAhoy.csproj
+		SccProjectName3 = SkinsAhoy
+		SccLocalPath3 = SkinsAhoy
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +38,10 @@ Global
 		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F951034-ADE7-4175-9B3C-11DEACBA542D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F951034-ADE7-4175-9B3C-11DEACBA542D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F951034-ADE7-4175-9B3C-11DEACBA542D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F951034-ADE7-4175-9B3C-11DEACBA542D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

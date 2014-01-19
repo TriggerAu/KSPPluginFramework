@@ -180,7 +180,7 @@ public abstract class MonoBehaviourWindow : MonoBehaviourExtended
     /// Whereis the tooltip positioned
     /// </summary>
     internal Rect TooltipPosition { get { return _TooltipPosition; } }
-    private Rect _TooltipPosition;
+    private Rect _TooltipPosition = new Rect();
 
     /// <summary>
     /// An offset from the mouse position to put the top left of the tooltip. Use this to get the tooltip out from under the cursor
@@ -219,60 +219,44 @@ public abstract class MonoBehaviourWindow : MonoBehaviourExtended
     private void DrawToolTip()
     {
         //Added drawing check to turn off tooltips when window hides
-        if (TooltipsEnabled && Visible && (strToolTipText != "") && ((TooltipDisplayForSecs==0) || (fltTooltipTime < (Single)TooltipDisplayForSecs)))
+        if (TooltipsEnabled && Visible && (strToolTipText != "") && ((TooltipDisplayForSecs == 0) || (fltTooltipTime < (Single)TooltipDisplayForSecs)))
         {
             GUIContent contTooltip = new GUIContent(strToolTipText);
             GUIStyle styleTooltip = SkinsLibrary.CurrentTooltip;
 
-            //if the tooltip is not currently shown, or the content has changed then redo the calc work
+            //if the content of the tooltip changes then reset the counter
             if (!TooltipShown || (strToolTipText != strLastTooltipText))
-            {
-                //reset display time if text changed
                 fltTooltipTime = 0f;
 
-                //Calc the size of the Tooltip
-                _TooltipPosition = new Rect();
-                _TooltipPosition.x = Event.current.mousePosition.x + (Single)TooltipMouseOffset.x;
-                _TooltipPosition.y = Event.current.mousePosition.y + (Single)TooltipMouseOffset.y;
+            //Calc the size of the Tooltip
+            _TooltipPosition.x = Event.current.mousePosition.x + (Single)TooltipMouseOffset.x;
+            _TooltipPosition.y = Event.current.mousePosition.y + (Single)TooltipMouseOffset.y;
                 
-                //do max width calc if needed
-                if (TooltipMaxWidth > 0) {
-                    //set the new style props
-                    styleTooltip.wordWrap = true;
-                    styleTooltip.stretchHeight = false;
-                    styleTooltip.stretchWidth = false;
-
-                    //calc the new width and height
-                    float minwidth, maxwidth;
-                    SkinsLibrary.CurrentTooltip.CalcMinMaxWidth(contTooltip, out minwidth, out maxwidth); // figure out how wide one line would be
-                    _TooltipPosition.width = Math.Min(TooltipMaxWidth - SkinsLibrary.CurrentTooltip.padding.horizontal, maxwidth); //then work out the height with a max width
-                    _TooltipPosition.height = SkinsLibrary.CurrentTooltip.CalcHeight(contTooltip, TooltipPosition.width); // heres the result
-                }
-                else
-                {
-                    //set the new styleprops
-                    styleTooltip.stretchHeight = true;
-                    styleTooltip.stretchWidth = true;
-                    styleTooltip.wordWrap = false;
-
-                    Vector2 Size = SkinsLibrary.CurrentTooltip.CalcSize(contTooltip);
-                    _TooltipPosition.width = Size.x;
-                    _TooltipPosition.height= Size.y;
-
-                }
-
-                //Make sure its not off the right of the screen
-                //if (TooltipPosition.x + TooltipPosition.width > Screen.width) _TooltipPosition.x = Screen.width - TooltipPosition.width;
+            //do max width calc if needed
+            if (TooltipMaxWidth > 0) {
+                //calc the new width and height
+                float minwidth, maxwidth;
+                SkinsLibrary.CurrentTooltip.CalcMinMaxWidth(contTooltip, out minwidth, out maxwidth); // figure out how wide one line would be
+                _TooltipPosition.width = Math.Min(TooltipMaxWidth - SkinsLibrary.CurrentTooltip.padding.horizontal, maxwidth); //then work out the height with a max width
+                _TooltipPosition.height = SkinsLibrary.CurrentTooltip.CalcHeight(contTooltip, TooltipPosition.width); // heres the result
             }
-            else if (!TooltipStatic)
+            else
             {
-                //move the x/y to follow the mouse
-                _TooltipPosition.x = Event.current.mousePosition.x + (Single)TooltipMouseOffset.x;
-                _TooltipPosition.y = Event.current.mousePosition.y + (Single)TooltipMouseOffset.y;
+                //calc the new width and height
+                Vector2 Size = SkinsLibrary.CurrentTooltip.CalcSize(contTooltip);
+                _TooltipPosition.width = Size.x;
+                _TooltipPosition.height= Size.y;
+
             }
+            //set the style props for text layout
+            styleTooltip.stretchHeight = !(TooltipMaxWidth > 0);
+            styleTooltip.stretchWidth = !(TooltipMaxWidth > 0);
+            styleTooltip.wordWrap = (TooltipMaxWidth > 0);
+
+            //clamp it accordingly
             if (ClampToScreen)
                 _TooltipPosition = _TooltipPosition.ClampToScreen(ClampToScreenOffset);
-
+            
             //Draw the Tooltip
             GUI.Label(TooltipPosition, contTooltip, styleTooltip);
             //On top of everything
@@ -287,9 +271,7 @@ public abstract class MonoBehaviourWindow : MonoBehaviourExtended
             //clear the flags
             TooltipShown = false;
         }
-        //if the content of the tooltip changes then reset the counter
-        if (strToolTipText != strLastTooltipText)
-            fltTooltipTime = 0f;
+
         strLastTooltipText = strToolTipText;
     }
 

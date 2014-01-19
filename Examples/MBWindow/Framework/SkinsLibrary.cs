@@ -70,8 +70,8 @@ internal static class SkinsLibrary
     internal enum DefSkinType
     {
         Unity,
-        KSP,
-        None
+        KSP
+        //,None
     }
 
     /// <summary>
@@ -85,7 +85,7 @@ internal static class SkinsLibrary
         {
             case DefSkinType.Unity: _CurrentSkin = DefUnitySkin; break;
             case DefSkinType.KSP: _CurrentSkin = DefKSPSkin; break;
-            case DefSkinType.None: _CurrentSkin = new GUISkin(); break;
+            //case DefSkinType.None: _CurrentSkin = new GUISkin(); break;
             default: _CurrentSkin = DefKSPSkin; break;
         }
         //Now set the tooltip style as well
@@ -163,7 +163,7 @@ internal static class SkinsLibrary
         {
             case DefSkinType.Unity: return (GUISkin)MonoBehaviourExtended.Instantiate(DefUnitySkin);
             case DefSkinType.KSP: return (GUISkin)MonoBehaviourExtended.Instantiate(DefKSPSkin);
-            case DefSkinType.None: return new GUISkin();
+            //case DefSkinType.None: return new GUISkin();
             default: return (GUISkin)MonoBehaviourExtended.Instantiate(DefKSPSkin);
         }
     }
@@ -309,6 +309,12 @@ internal static class SkinsLibrary
     /// <param name="NewStyle">The GUIStyle to add or update</param>
     internal static void AddStyle(ref GUISkin SkinToAction, GUIStyle NewStyle)
     {
+        if (NewStyle.name==null || NewStyle.name == "")
+        {
+            MonoBehaviourExtended.LogFormatted("No Name Provided in the Style to add to {0}. Cannot add this.", SkinToAction.name);
+            return;
+        }
+
         //Convert to a list
         List<GUIStyle> lstTemp = SkinToAction.customStyles.ToList<GUIStyle>();
 
