@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBExtended", "MBExtended\MBExtended.csproj", "{C656626C-3770-422A-8847-D609CCDFA6ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBWindow", "MBWindow\MBWindow.csproj", "{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkinsAhoy", "SkinsAhoy\SkinsAhoy.csproj", "{7F951034-ADE7-4175-9B3C-11DEACBA542D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistingData", "PersistingData\PersistingData.csproj", "{9F08B7B7-6A43-4B49-8C35-FB0BED4B4E55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistingDataErrors", "PersistingDataErrors\PersistingDataErrors.csproj", "{B5A3C5F6-8121-4781-981F-EE3C24DA6026}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs34
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MBExtended\\MBExtended.csproj
+		SccProjectName1 = MBExtended
+		SccLocalPath1 = MBExtended
+		SccProjectUniqueName2 = MBWindow\\MBWindow.csproj
+		SccProjectName2 = MBWindow
+		SccLocalPath2 = MBWindow
+		SccProjectUniqueName3 = SkinsAhoy\\SkinsAhoy.csproj
+		SccProjectName3 = SkinsAhoy
+		SccLocalPath3 = SkinsAhoy
+		SccProjectUniqueName4 = PersistingData\\PersistingData.csproj
+		SccProjectName4 = PersistingData
+		SccLocalPath4 = PersistingData
+		SccProjectUniqueName5 = PersistingDataErrors\\PersistingDataErrors.csproj
+		SccProjectName5 = PersistingDataErrors
+		SccLocalPath5 = PersistingDataErrors
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C656626C-3770-422A-8847-D609CCDFA6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C656626C-3770-422A-8847-D609CCDFA6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C656626C-3770-422A-8847-D609CCDFA6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C656626C-3770-422A-8847-D609CCDFA6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3403AC-8F46-4D0E-8B20-2D1D22EA2555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F951034-ADE7-4175-9B3C-11DEACBA542D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F951034-ADE7-4175-9B3C-11DEACBA542D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F951034-ADE7-4175-9B3C-11DEACBA542D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F951034-ADE7-4175-9B3C-11DEACBA542D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F08B7B7-6A43-4B49-8C35-FB0BED4B4E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F08B7B7-6A43-4B49-8C35-FB0BED4B4E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F08B7B7-6A43-4B49-8C35-FB0BED4B4E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F08B7B7-6A43-4B49-8C35-FB0BED4B4E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5A3C5F6-8121-4781-981F-EE3C24DA6026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A3C5F6-8121-4781-981F-EE3C24DA6026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A3C5F6-8121-4781-981F-EE3C24DA6026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A3C5F6-8121-4781-981F-EE3C24DA6026}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
