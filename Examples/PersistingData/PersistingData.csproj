@@ -45,11 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComparisonExample.cs" />
+    <Compile Include="DictionaryTest.cs" />
     <Compile Include="Framework\ConfigNodeStorage.cs" />
     <Compile Include="Framework\ExtensionsUnity.cs" />
     <Compile Include="Framework\MonoBehaviourExtended.cs" />
     <Compile Include="Framework\MonoBehaviourWindow.cs" />
     <Compile Include="Framework\SkinsLibrary.cs" />
+    <Compile Include="Number over time.cs" />
     <Compile Include="PersistingData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

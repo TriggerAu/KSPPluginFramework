@@ -121,7 +121,6 @@ namespace PersistingData
 
 
         //Custom Class Storage
-
         [Persistent] private ManeuverNodeStorage ManNodeStore = new ManeuverNodeStorage();
         internal ManeuverNode ManNode = new ManeuverNode();
 
