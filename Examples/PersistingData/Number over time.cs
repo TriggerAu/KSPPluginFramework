@@ -5,6 +5,7 @@ using System.Text;
 
 using KSP;
 using UnityEngine;
+using KSPPluginFramework;
 
 namespace PersistingData
 {
