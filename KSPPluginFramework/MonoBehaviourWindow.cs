@@ -90,7 +90,11 @@ namespace KSPPluginFramework
             GameEvents.onGUIMissionControlSpawn.Add(HideUI);
             GameEvents.onGUIMissionControlDespawn.Add(HideUI);
             GameEvents.onGUIKSPediaSpawn.Add(HideUI);
-            GameEvents.onGUIKSPediaSpawn.Add(ShowUI);
+            GameEvents.onGUIKSPediaDespawn.Add(ShowUI);
+            GameEvents.onGUIAstronautComplexSpawn.Add(HideUI);
+            GameEvents.onGUIAstronautComplexDespawn.Add(ShowUI);
+            GameEvents.onGUIRnDComplexSpawn.Add(HideUI);
+            GameEvents.onGUIRnDComplexDespawn.Add(ShowUI);
         }
 
         internal bool bHideUI = false;
