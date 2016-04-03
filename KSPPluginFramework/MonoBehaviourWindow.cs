@@ -81,7 +81,33 @@ namespace KSPPluginFramework
             //just some debugging stuff here
             LogFormatted_DebugOnly("New MBWindow Awakened");
 
-            //base.Awake();
+            base.Awake();
+
+            GameEvents.onShowUI.Add(ShowUI);
+            GameEvents.onHideUI.Add(HideUI);
+            GameEvents.onGUIAdministrationFacilitySpawn.Add(HideUI);
+            GameEvents.onGUIAdministrationFacilityDespawn.Add(ShowUI);
+            GameEvents.onGUIMissionControlSpawn.Add(HideUI);
+            GameEvents.onGUIMissionControlDespawn.Add(HideUI);
+            GameEvents.onGUIKSPediaSpawn.Add(HideUI);
+            GameEvents.onGUIKSPediaDespawn.Add(ShowUI);
+            GameEvents.onGUIAstronautComplexSpawn.Add(HideUI);
+            GameEvents.onGUIAstronautComplexDespawn.Add(ShowUI);
+            GameEvents.onGUIRnDComplexSpawn.Add(HideUI);
+            GameEvents.onGUIRnDComplexDespawn.Add(ShowUI);
+        }
+
+        internal bool bHideUI = false;
+        public void ShowUI()
+        {
+            LogFormatted_DebugOnly("Setting HideUI = False");
+            bHideUI = false;
+        }
+
+        public void HideUI()
+        {
+            LogFormatted_DebugOnly("Setting HideUI = True");
+            bHideUI = true;
         }
 
         /// <summary>
@@ -124,6 +150,13 @@ namespace KSPPluginFramework
         /// </summary>
         internal RectOffset ClampToScreenOffset = new RectOffset(0, 0, 0, 0);
 
+        internal override void OnGUIEvery()
+        {
+            if (bHideUI)
+                return;
+            DrawGUI(); // Your current on postDrawQueue code            
+        }
+
         private Boolean _Visible;
         /// <summary>
         /// Whether the Window is visible or not. Changing this value will add/remove the window from the RenderingManager.PostDrawQueue
@@ -135,18 +168,12 @@ namespace KSPPluginFramework
             {
                 if (_Visible != value)
                 {
-                    if (value)
-                    {
-                        LogFormatted_DebugOnly("Adding Window to PostDrawQueue-{0}", WindowID);
-                        RenderingManager.AddToPostDrawQueue(5, this.DrawGUI);
-                    }
-                    else
-                    {
-                        LogFormatted_DebugOnly("Removing Window from PostDrawQueue", WindowID);
-                        RenderingManager.RemoveFromPostDrawQueue(5, this.DrawGUI);
-                    }
+                    //raise event if theres one registered
+                    if (onWindowVisibleChanged != null)
+                        onWindowVisibleChanged(this, value);
                 }
                 _Visible = value;
+                
             }
         }
 
@@ -156,6 +183,9 @@ namespace KSPPluginFramework
         /// </summary>
         private void DrawGUI()
         {
+            if (!_Visible)
+                return;
+            
             //this sets the skin on each draw loop
             GUI.skin = SkinsLibrary.CurrentSkin;
 
@@ -198,6 +228,7 @@ namespace KSPPluginFramework
             DrawWindow(id);
 
             DrawWindowPost(id);
+
 
             //Set the Tooltip variable based on whats in this window
             if (TooltipsEnabled)
@@ -339,10 +370,10 @@ namespace KSPPluginFramework
                 TooltipShown = false;
             }
 
-			//if we've moved to a diffn tooltip then reset the counter
-			if (strToolTipText != strLastTooltipText) fltTooltipTime = 0f;
-			
-			//make sure the last text is correct
+            //if we've moved to a diffn tooltip then reset the counter
+            if (strToolTipText != strLastTooltipText) fltTooltipTime = 0f;
+            
+            //make sure the last text is correct
             strLastTooltipText = strToolTipText;
         }
 
