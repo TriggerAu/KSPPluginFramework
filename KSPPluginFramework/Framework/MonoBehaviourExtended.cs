@@ -57,7 +57,8 @@ namespace KSPPluginFramework
         //}
         static MonoBehaviourExtended()
         {
-            UnityEngine.Random.seed = (int)(DateTime.Now - DateTime.Now.Date).TotalSeconds;
+            //Must do this in awake now
+            //UnityEngine.Random.seed = (int)(DateTime.Now - DateTime.Now.Date).TotalSeconds;
         }
         #endregion
 
@@ -264,7 +265,20 @@ namespace KSPPluginFramework
         /// Trigger: Override this for initialization Code - this is before the Start Event
         ///          See this for info on order of execuction: http://docs.unity3d.com/Documentation/Manual/ExecutionOrder.html
         /// </summary>
-        internal virtual void Awake()
+        private void Awake()
+        {
+            if(!randomInitialized)
+            {
+                UnityEngine.Random.InitState((int)(DateTime.Now - DateTime.Now.Date).TotalMilliseconds);
+                randomInitialized = true;
+            }
+
+            OnAwake();
+        }
+
+        private static bool randomInitialized = false;
+
+        internal virtual void OnAwake()
         {
             LogFormatted_DebugOnly("New MBExtended Awakened");
         }
@@ -296,6 +310,20 @@ namespace KSPPluginFramework
         ///          See this for info on order of execuction: http://docs.unity3d.com/Documentation/Manual/ExecutionOrder.html
         /// </summary>
         internal virtual void LateUpdate()
+        { }
+
+        /// <summary>
+        /// <summary>
+        /// Unity: OnPreCull is called before a camera culls the scene. This function is called only if the script is attached to the camera and is enabled.
+        ///
+        /// Trigger: This function is one of the first in the Scene Rendering part of the update loop. When the plugin sees thi function all the background logic is completed
+        ///          At this point in the loop all the positions for onscreen elements are set and using this section can lead to nolag updates on graphic objects
+        /// 
+        ///          NOTE: The class must be attached to a camera object to have this get called -  obj = MapView.MapCamera.gameObject.AddComponent<MBExtended>();
+        /// 
+        ///          See this for info on order of execuction: http://docs.unity3d.com/Documentation/Manual/ExecutionOrder.html
+        /// </summary>
+        internal virtual void OnPreCull()
         { }
 
         /// <summary>
